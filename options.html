@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LankaTranslate - Extension Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="page-container">
+    <header class="page-header">
+      <div class="brand">
+        <span class="flag">🇱🇰</span>
+        <div>
+          <h1>LankaTranslate Settings</h1>
+          <p class="desc">Configure preferences for Sinhala and Sri Lankan Tamil web translations</p>
+        </div>
+      </div>
+      <div class="version-tag">v1.0.0 (Manifest V3)</div>
+    </header>
+
+    <main class="settings-card">
+      <!-- General Translation Preferences -->
+      <section class="section">
+        <h2 class="section-title">General Preferences</h2>
+        
+        <div class="form-row">
+          <div class="row-info">
+            <label for="opt-default-target" class="row-label">Default Target Language</label>
+            <p class="row-hint">The language selected automatically when translating selected text or using hotkeys.</p>
+          </div>
+          <div class="row-control">
+            <select id="opt-default-target" class="select-field">
+              <option value="si">Sinhala (සිංහල)</option>
+              <option value="ta">Sri Lankan Tamil (தமிழ்)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="row-info">
+            <label class="row-label">Floating "🇱🇰 Translate" Button</label>
+            <p class="row-hint">Display the floating translate pill button immediately when text is selected on any webpage.</p>
+          </div>
+          <div class="row-control">
+            <label class="toggle-switch">
+              <input type="checkbox" id="opt-floating-btn" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="row-info">
+            <label class="row-label">Auto-Translate on Selection</label>
+            <p class="row-hint">Automatically pop open the translation panel as soon as text is highlighted without clicking the floating button.</p>
+          </div>
+          <div class="row-control">
+            <label class="toggle-switch">
+              <input type="checkbox" id="opt-auto-translate">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="row-info">
+            <label class="row-label">Keyboard Shortcut</label>
+            <p class="row-hint">Press <kbd>Alt</kbd> + <kbd>T</kbd> (or customize in <code>chrome://extensions/shortcuts</code>) to translate highlighted text.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Translation Engine & Backend Settings -->
+      <section class="section">
+        <h2 class="section-title">Translation Engine &amp; API Backend</h2>
+
+        <div class="form-row">
+          <div class="row-info">
+            <label for="opt-engine" class="row-label">Engine Provider</label>
+            <p class="row-hint">Choose whether to use the direct cloud engine or route via your local XAMPP PHP backend.</p>
+          </div>
+          <div class="row-control">
+            <select id="opt-engine" class="select-field">
+              <option value="direct">Built-in Direct Public Engine (Recommended / No Setup Needed)</option>
+              <option value="backend">Local PHP Backend (XAMPP / Custom Server)</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="backend-fields" class="sub-fields hidden">
+          <div class="form-row">
+            <div class="row-info">
+              <label for="opt-backend-url" class="row-label">PHP Backend URL</label>
+              <p class="row-hint">URL pointing to <code>api/translate.php</code> on your local Apache/PHP server.</p>
+            </div>
+            <div class="row-control">
+              <input type="url" id="opt-backend-url" class="input-field" value="http://localhost/LankaTranslate/api/translate.php">
+            </div>
+          </div>
+          <div class="note-box">
+            💡 <strong>XAMPP Tip:</strong> Ensure Apache is running in your XAMPP Control Panel. The default endpoint is <code>http://localhost/LankaTranslate/api/translate.php</code>.
+          </div>
+        </div>
+      </section>
+
+      <!-- Sri Lankan Tamil Localization -->
+      <section class="section">
+        <h2 class="section-title">Sri Lankan Tamil Dialect Filter</h2>
+        <div class="form-row">
+          <div class="row-info">
+            <label class="row-label">Sri Lankan Tamil Vocabulary Normalization</label>
+            <p class="row-hint">Automatically adapts standard Indian Tamil terms into traditional Sri Lankan Tamil usage (e.g., புகையிரதம் instead of ரயில், கைத்தொலைபேசி instead of அலைபேசி, பஸ் instead of பேருந்து, வைத்தியசாலை instead of மருத்துவமனை).</p>
+          </div>
+          <div class="row-control">
+            <label class="toggle-switch">
+              <input type="checkbox" id="opt-sl-filter" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Actions Bar -->
+      <div class="actions-bar">
+        <button id="save-btn" class="save-button">Save Preferences</button>
+        <span id="save-msg" class="save-status hidden">✓ Saved successfully!</span>
+      </div>
+    </main>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

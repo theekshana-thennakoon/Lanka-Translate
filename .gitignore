@@ -1,0 +1,19 @@
+# Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Sensitive local configurations
+api/config.local.php
+*.key
+*.pem
+
+# Archive files
+*.zip
+*.tar.gz

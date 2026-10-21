@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LankaTranslate Test Page</title>
+  <style>
+    :root {
+      --primary: #8D153A;
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --text: #1E293B;
+      --border: #E2E8F0;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+    }
+    .header {
+      background: linear-gradient(135deg, #8D153A 0%, #B8224E 100%);
+      color: #ffffff;
+      padding: 30px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 25px rgba(141, 21, 58, 0.2);
+    }
+    .header h1 {
+      margin: 0 0 10px;
+      font-size: 28px;
+    }
+    .header p {
+      margin: 0;
+      opacity: 0.9;
+      font-size: 15px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .card h2 {
+      margin-top: 0;
+      font-size: 18px;
+      color: var(--primary);
+      border-bottom: 2px solid #F1F5F9;
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+    }
+    .highlight-tip {
+      background: #EFF6FF;
+      border-left: 4px solid #3B82F6;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #1E40AF;
+    }
+    .sample-box {
+      background: #F8FAFC;
+      border: 1px dashed #CBD5E1;
+      padding: 18px;
+      border-radius: 8px;
+      margin: 12px 0;
+      font-size: 15px;
+      line-height: 1.7;
+      cursor: text;
+    }
+    .sample-box:hover {
+      border-color: #8D153A;
+      background: #FFFDFE;
+    }
+    .step-list {
+      padding-left: 20px;
+    }
+    .step-list li {
+      margin-bottom: 8px;
+    }
+    kbd {
+      background: #E2E8F0;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 12px;
+      font-family: monospace;
+    }
+    .chrome-tip {
+      background: #FEF3C7;
+      border: 1px solid #FCD34D;
+      color: #92400E;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🇱🇰 LankaTranslate - Extension Test Page</h1>
+      <p>Select any sentence or paragraph below to test instant translation to Sinhala (සිංහල) and Sri Lankan Tamil (தமிழ்).</p>
+    </div>
+
+    <div class="highlight-tip">
+      👉 <strong>How to test:</strong> Drag your mouse over any text below. As soon as you release the mouse, the <strong>"Translate 🇱🇰"</strong> button will appear right beside your cursor!
+    </div>
+
+    <!-- Sample 1: Technology & Daily Life (Paragraph) -->
+    <div class="card">
+      <h2>1. Technology &amp; Education (Paragraph)</h2>
+      <p>Select this paragraph to test:</p>
+      <div class="sample-box">
+        Information technology plays a vital role in modern education and business. Students and professionals can communicate across great distances, share knowledge instantly, and collaborate on important projects using mobile phones and computers.
+      </div>
+    </div>
+
+    <!-- Sample 2: Sri Lankan Local Context (Transport & Public Services) -->
+    <div class="card">
+      <h2>2. Sri Lankan Local Context (Transport &amp; Healthcare)</h2>
+      <p>Select this paragraph to test authentic Sri Lankan Tamil terms (e.g. <em>புகையிரத நிலையம்</em>, <em>பஸ்</em>, <em>வைத்தியசாலை</em>, <em>கைத்தொலைபேசி</em>):</p>
+      <div class="sample-box">
+        The passenger took a bus from the central bus station to the railway station this morning. Afterwards, he visited the general hospital and contacted the government administrative office using his mobile phone to inquire about the upcoming examination.
+      </div>
+    </div>
+
+    <!-- Sample 3: Sentences & Phrases -->
+    <div class="card">
+      <h2>3. Daily Sentences</h2>
+      <ul class="step-list">
+        <li>"Good morning, welcome to Sri Lanka!"</li>
+        <li>"Please proceed to the nearest customer service counter."</li>
+        <li>"The train to Kandy departs in fifteen minutes."</li>
+        <li>"Healthcare and education are fundamental rights of all citizens."</li>
+      </ul>
+    </div>
+
+    <div class="chrome-tip">
+      ⚙️ <strong>Chrome Extension Tip:</strong> If you are testing the extension via <code>file:///</code> URLs on other HTML files, remember to open <code>chrome://extensions</code> &rarr; click <strong>Details</strong> on LankaTranslate &rarr; turn ON <strong>"Allow access to file URLs"</strong>.
+    </div>
+  </div>
+
+  <!-- Injected to enable instant testing on local file mode -->
+  <script src="content.js"></script>
+</body>
+</html>

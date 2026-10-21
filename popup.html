@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LankaTranslate</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <span class="flag-icon">🇱🇰</span>
+        <div class="brand-text">
+          <h1>LankaTranslate</h1>
+          <span class="subtitle">Sinhala &amp; Sri Lankan Tamil</span>
+        </div>
+      </div>
+      <a href="options.html" target="_blank" class="header-action-btn" title="Open Settings in Tab">⚙</a>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="tab-btn active" data-tab="tab-translate">
+        <span class="tab-icon">🔤</span> Translate
+      </button>
+      <button class="tab-btn" data-tab="tab-history">
+        <span class="tab-icon">📜</span> History
+      </button>
+      <button class="tab-btn" data-tab="tab-settings">
+        <span class="tab-icon">⚙</span> Settings
+      </button>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="tab-content">
+      <!-- 1. Translate Tab -->
+      <section id="tab-translate" class="tab-pane active">
+        <!-- Target Language Bar -->
+        <div class="lang-bar">
+          <span class="lang-label">Target:</span>
+          <div class="lang-pills">
+            <button class="pill-btn active" data-target="si">
+              <span class="pill-dot"></span> සිංහල (Sinhala)
+            </button>
+            <button class="pill-btn" data-target="ta">
+              <span class="pill-dot"></span> தமிழ் (SL Tamil)
+            </button>
+          </div>
+        </div>
+
+        <!-- Input Box -->
+        <div class="input-card">
+          <div class="card-toolbar">
+            <span class="toolbar-label">Source Text</span>
+            <div class="toolbar-actions">
+              <button id="paste-btn" class="text-action-btn" title="Paste from clipboard">📋 Paste</button>
+              <button id="clear-input-btn" class="text-action-btn" title="Clear text">✕ Clear</button>
+            </div>
+          </div>
+          <textarea id="source-input" placeholder="Type, paste, or select text on any webpage..." rows="4" maxlength="5000"></textarea>
+          <div class="char-count"><span id="char-current">0</span> / 5000</div>
+        </div>
+
+        <!-- Translate Action Button -->
+        <button id="translate-btn" class="primary-btn">
+          <span class="btn-spinner hidden"></span>
+          <span class="btn-text">Translate Now</span>
+        </button>
+
+        <!-- Output Box -->
+        <div id="output-wrapper" class="output-card hidden">
+          <div class="card-toolbar">
+            <span id="output-lang-badge" class="badge">Sinhala (සිංහල)</span>
+            <div class="toolbar-actions">
+              <button id="copy-result-btn" class="text-action-btn" title="Copy translation">📋 Copy</button>
+              <button id="speak-result-btn" class="text-action-btn" title="Listen pronunciation">🔊 Listen</button>
+            </div>
+          </div>
+          <div id="output-result" class="output-content"></div>
+        </div>
+      </section>
+
+      <!-- 2. History Tab -->
+      <section id="tab-history" class="tab-pane">
+        <div class="history-header">
+          <span>Recent Translations</span>
+          <button id="clear-history-btn" class="danger-link-btn">Clear All</button>
+        </div>
+        <div id="history-list" class="history-container">
+          <!-- Dynamically populated -->
+        </div>
+      </section>
+
+      <!-- 3. Settings Tab -->
+      <section id="tab-settings" class="tab-pane">
+        <div class="settings-group">
+          <label class="setting-title" for="default-target-select">Default Target Language</label>
+          <select id="default-target-select" class="form-select">
+            <option value="si">Sinhala (සිංහල)</option>
+            <option value="ta">Sri Lankan Tamil (தமிழ்)</option>
+          </select>
+          <span class="setting-hint">Language used when translating selection via shortcuts or floating icon.</span>
+        </div>
+
+        <div class="settings-group">
+          <label class="toggle-row">
+            <span class="toggle-label">Show Floating Button on Webpage</span>
+            <input type="checkbox" id="toggle-floating-btn" checked>
+            <span class="switch"></span>
+          </label>
+          <span class="setting-hint">Displays the "🇱🇰 Translate" button when text is selected on any page.</span>
+        </div>
+
+        <div class="settings-group">
+          <label class="toggle-row">
+            <span class="toggle-label">Auto-Translate on Selection</span>
+            <input type="checkbox" id="toggle-auto-translate">
+            <span class="switch"></span>
+          </label>
+          <span class="setting-hint">Automatically pops up the translation without clicking the floating button.</span>
+        </div>
+
+        <div class="settings-group">
+          <label class="setting-title" for="engine-type-select">Translation Engine</label>
+          <select id="engine-type-select" class="form-select">
+            <option value="direct">Built-in Public Engine (Instant, No Backend)</option>
+            <option value="backend">Local PHP Backend (XAMPP)</option>
+          </select>
+          <span class="setting-hint">Use PHP backend on your local server or the built-in direct engine.</span>
+        </div>
+
+        <div id="backend-url-container" class="settings-group hidden">
+          <label class="setting-title" for="backend-url-input">PHP Backend URL</label>
+          <input type="text" id="backend-url-input" class="form-input" value="http://localhost/LankaTranslate/api/translate.php">
+          <span class="setting-hint">Your local or hosted LankaTranslate PHP endpoint.</span>
+        </div>
+
+        <button id="save-settings-btn" class="primary-btn secondary">Save Settings</button>
+        <div id="settings-toast" class="toast hidden">✓ Settings saved successfully!</div>
+      </section>
+    </main>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
